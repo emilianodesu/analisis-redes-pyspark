@@ -1,0 +1,22 @@
+{
+  "archive": "transferencia_redes.tar",
+  "archive_sha256": "f26e5b3b9a0a24337c6ffc65f88e5765bad8f5bb6ff2e78cee3e0697cdf95855",
+  "archive_bytes": 3013376000,
+  "parts": [
+    {
+      "name": "transferencia_redes.tar.part01",
+      "bytes": 1073741824,
+      "sha256": "2240edb5b949d68fdef8f782e001f25d685209b41e543c37df1f5e0d2f75a672"
+    },
+    {
+      "name": "transferencia_redes.tar.part02",
+      "bytes": 1073741824,
+      "sha256": "85987a68fccb1c393eb21b502e1429bac2fafef0d788714700040624e13d7110"
+    },
+    {
+      "name": "transferencia_redes.tar.part03",
+      "bytes": 865892352,
+      "sha256": "0a06db16513ad1b22fa2390c95cb41bb7231f877640ed6cae8e920a75f875224"
+    }
+  ]
+}

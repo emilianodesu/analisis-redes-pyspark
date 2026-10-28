@@ -10,7 +10,7 @@ Entregar `analisis_redes.ipynb` en español, ejecutado, con HITS, PageRank y Top
 - `handoff/` contiene copias informativas de auditorías y resúmenes. **No son archivos de reanudación.** El notebook conserva resultados parciales reales y no es una entrega completa.
 
 ## Importar el estado computacional
-GitHub contiene código y resultados resumidos. Copiar por disco externo/red privada, por separado, `transferencia_redes.tar` y `transferencia_redes.tar.sha256` de la carpeta original T3. No subir el TAR a GitHub.
+GitHub contiene código y resultados resumidos. El paquete de datos completo se descarga desde la [Release migration-v1](https://github.com/emilianodesu/analisis-redes-pyspark/releases/tag/migration-v1), dividido en tres partes. El descargador verifica SHA-256 de cada parte y del archivo reconstruido. No necesitas acceso a la Mac original. Reserva aproximadamente 9 GB para partes, TAR y extracción, además del espacio de trabajo de Spark.
 
 El TAR contiene los grafos procesados de los tres datasets y las carpetas de resultados de esos datasets, incluyendo PageRank de Wikipedia. No contiene el XML comprimido, los lotes XML, caché de arXiv, temporales Spark ni entornos. Es suficiente para continuar los algoritmos sin repetir extracción ni adquisición. Para conservar también las fuentes originales, transferir `data/raw/` por separado.
 
@@ -19,7 +19,8 @@ En un clon nuevo, instalar Python 3.11 y Java 17 y definir JAVA_HOME:
 ```sh
 python3.11 -m venv .venv
 .venv/bin/python -m pip install -r requirements.lock.txt
-.venv/bin/python scripts/transfer.py import /ruta/transferencia_redes.tar
+.venv/bin/python scripts/download_transfer.py
+.venv/bin/python scripts/transfer.py import transferencia_redes.tar
 .venv/bin/python -m pytest -q tests
 ```
 

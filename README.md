@@ -65,4 +65,4 @@ El notebook incluye las referencias y explica la interpretación de cada algorit
 
 ## Continuar en otro equipo
 
-Leer [el traspaso al siguiente agente](handoff/REANUDAR.md) y [el último estado observado](handoff/estado.json). El repositorio incluye resultados resumidos; para reutilizar grafos y rankings completos se necesita el paquete local `transferencia_redes.tar` con su `.sha256`. El notebook todavía está incompleto para HITS y temas de Wikipedia. El cambio de tolerancia discutido no está implementado.
+Leer [el traspaso al siguiente agente](handoff/REANUDAR.md) y [el último estado observado](handoff/estado.json). El repositorio incluye resultados resumidos; para reutilizar grafos y rankings completos descarga el paquete con `python3 scripts/download_transfer.py` desde la [Release migration-v1](https://github.com/emilianodesu/analisis-redes-pyspark/releases/tag/migration-v1). El notebook todavía está incompleto para HITS y temas de Wikipedia. El cambio de tolerancia discutido no está implementado.
