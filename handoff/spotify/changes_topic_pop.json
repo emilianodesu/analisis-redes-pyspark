@@ -1,0 +1,142 @@
+[
+  {
+    "id": "01pSsqt7FLdq2SC6UqjER3",
+    "title": "Raimonds Pauls",
+    "topic_rank": 1,
+    "pagerank_rank": 42,
+    "gain": 41
+  },
+  {
+    "id": "2wDTo0nO2ZKJN7VUeGmuyg",
+    "title": "Renuka Panwar",
+    "topic_rank": 2,
+    "pagerank_rank": 26,
+    "gain": 24
+  },
+  {
+    "id": "1mYsTxnqsietFxj1OgoGbG",
+    "title": "A.R. Rahman",
+    "topic_rank": 3,
+    "pagerank_rank": 8,
+    "gain": 5
+  },
+  {
+    "id": "1U5zgr455OGyIkLNXvDdrf",
+    "title": "Traditional",
+    "topic_rank": 4,
+    "pagerank_rank": 2,
+    "gain": -2
+  },
+  {
+    "id": "1wRPtKGflJrBx9BmLsSwlU",
+    "title": "Pritam",
+    "topic_rank": 5,
+    "pagerank_rank": 21,
+    "gain": 16
+  },
+  {
+    "id": "6cEuCEZu7PAE9ZSzLLc2oQ",
+    "title": "R3HAB",
+    "topic_rank": 6,
+    "pagerank_rank": 34,
+    "gain": 28
+  },
+  {
+    "id": "77AiFEVeAVj2ORpC85QVJs",
+    "title": "Steve Aoki",
+    "topic_rank": 7,
+    "pagerank_rank": 18,
+    "gain": 11
+  },
+  {
+    "id": "2o5jDhtHVPhrJdv3cEQ99Z",
+    "title": "Tiësto",
+    "topic_rank": 8,
+    "pagerank_rank": 19,
+    "gain": 11
+  },
+  {
+    "id": "5fMUXHkw8R8eOP2RNVYEZX",
+    "title": "Diplo",
+    "topic_rank": 9,
+    "pagerank_rank": 20,
+    "gain": 11
+  },
+  {
+    "id": "0SfsnGyD8FpIN4U4WCkBZ5",
+    "title": "Armin van Buuren",
+    "topic_rank": 10,
+    "pagerank_rank": 9,
+    "gain": -1
+  },
+  {
+    "id": "7hJcb9fa4alzcOq3EaNPoG",
+    "title": "Snoop Dogg",
+    "topic_rank": 11,
+    "pagerank_rank": 12,
+    "gain": 1
+  },
+  {
+    "id": "7JqV001XBrSr1Iyt66VPGk",
+    "title": "Raffa Affar",
+    "topic_rank": 12,
+    "pagerank_rank": 119,
+    "gain": 107
+  },
+  {
+    "id": "4zaslnpNr10iUFJGx0XqpM",
+    "title": "Karel Gott",
+    "topic_rank": 13,
+    "pagerank_rank": 185,
+    "gain": 172
+  },
+  {
+    "id": "13y7CgLHjMVRMDqxdx0Xdo",
+    "title": "Gucci Mane",
+    "topic_rank": 14,
+    "pagerank_rank": 11,
+    "gain": -3
+  },
+  {
+    "id": "1Cs0zKBU1kc0i8ypK3B9ai",
+    "title": "David Guetta",
+    "topic_rank": 15,
+    "pagerank_rank": 25,
+    "gain": 10
+  },
+  {
+    "id": "6AiX12wXdXFoGJ2vk8zBjy",
+    "title": "Yuvan Shankar Raja",
+    "topic_rank": 16,
+    "pagerank_rank": 27,
+    "gain": 11
+  },
+  {
+    "id": "3EA9hVIzKfFiQI0Kikz2wo",
+    "title": "Andrea Bocelli",
+    "topic_rank": 17,
+    "pagerank_rank": 10,
+    "gain": -7
+  },
+  {
+    "id": "5VVN3xZw1i2qihfITZlvCZ",
+    "title": "G. V. Prakash",
+    "topic_rank": 18,
+    "pagerank_rank": 31,
+    "gain": 13
+  },
+  {
+    "id": "6yTYR09WCvsgdnurDW4WQo",
+    "title": "DJ Antoine",
+    "topic_rank": 19,
+    "pagerank_rank": 15,
+    "gain": -4
+  },
+  {
+    "id": "4xTiWBThjZgo1uZn1WpZm3",
+    "title": "DJ Hamida",
+    "topic_rank": 20,
+    "pagerank_rank": 41,
+    "gain": 21
+  }
+]

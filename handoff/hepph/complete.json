@@ -1,0 +1,13 @@
+{
+  "labels": [
+    "pagerank",
+    "authority",
+    "hub",
+    "topic_neutrinos",
+    "topic_higgs",
+    "topic_supersimetria",
+    "topic_mixture"
+  ],
+  "all_topics": true,
+  "all_converged": true
+}

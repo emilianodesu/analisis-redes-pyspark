@@ -1,0 +1,9 @@
+{
+  "directed": false,
+  "genres_available": true,
+  "nodes_without_metadata": 6,
+  "model": "colaboración recíproca sin pesos",
+  "nodes": 156326,
+  "raw_edges": 600772,
+  "edges": 600772
+}

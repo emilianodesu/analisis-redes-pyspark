@@ -1,0 +1,128 @@
+[
+  {
+    "a": "pagerank",
+    "b": "authority",
+    "pearson_scores": 0.2763181993119934,
+    "top20_overlap": 0.05
+  },
+  {
+    "a": "pagerank",
+    "b": "hub",
+    "pearson_scores": -0.01697542560316362,
+    "top20_overlap": 0.0
+  },
+  {
+    "a": "pagerank",
+    "b": "topic_neutrinos",
+    "pearson_scores": 0.44396930184910416,
+    "top20_overlap": 0.1
+  },
+  {
+    "a": "pagerank",
+    "b": "topic_higgs",
+    "pearson_scores": 0.5913238737865977,
+    "top20_overlap": 0.3
+  },
+  {
+    "a": "pagerank",
+    "b": "topic_supersimetria",
+    "pearson_scores": 0.5523005229012665,
+    "top20_overlap": 0.2
+  },
+  {
+    "a": "pagerank",
+    "b": "topic_mixture",
+    "pearson_scores": 0.6662249113517321,
+    "top20_overlap": 0.45
+  },
+  {
+    "a": "authority",
+    "b": "hub",
+    "pearson_scores": 0.31625363529603784,
+    "top20_overlap": 0.05
+  },
+  {
+    "a": "authority",
+    "b": "topic_neutrinos",
+    "pearson_scores": 0.17267390292254065,
+    "top20_overlap": 0.0
+  },
+  {
+    "a": "authority",
+    "b": "topic_higgs",
+    "pearson_scores": 0.3126154976730613,
+    "top20_overlap": 0.05
+  },
+  {
+    "a": "authority",
+    "b": "topic_supersimetria",
+    "pearson_scores": 0.2849992561044257,
+    "top20_overlap": 0.0
+  },
+  {
+    "a": "authority",
+    "b": "topic_mixture",
+    "pearson_scores": 0.31943713893596415,
+    "top20_overlap": 0.05
+  },
+  {
+    "a": "hub",
+    "b": "topic_neutrinos",
+    "pearson_scores": 0.012180045809784192,
+    "top20_overlap": 0.0
+  },
+  {
+    "a": "hub",
+    "b": "topic_higgs",
+    "pearson_scores": 0.03803477925816353,
+    "top20_overlap": 0.0
+  },
+  {
+    "a": "hub",
+    "b": "topic_supersimetria",
+    "pearson_scores": 0.04177876041339403,
+    "top20_overlap": 0.0
+  },
+  {
+    "a": "hub",
+    "b": "topic_mixture",
+    "pearson_scores": 0.03779287115480539,
+    "top20_overlap": 0.0
+  },
+  {
+    "a": "topic_neutrinos",
+    "b": "topic_higgs",
+    "pearson_scores": 0.26096726872231985,
+    "top20_overlap": 0.0
+  },
+  {
+    "a": "topic_neutrinos",
+    "b": "topic_supersimetria",
+    "pearson_scores": 0.3140376089594175,
+    "top20_overlap": 0.0
+  },
+  {
+    "a": "topic_neutrinos",
+    "b": "topic_mixture",
+    "pearson_scores": 0.7098394464507505,
+    "top20_overlap": 0.25
+  },
+  {
+    "a": "topic_higgs",
+    "b": "topic_supersimetria",
+    "pearson_scores": 0.728233606050839,
+    "top20_overlap": 0.35
+  },
+  {
+    "a": "topic_higgs",
+    "b": "topic_mixture",
+    "pearson_scores": 0.8010636978337422,
+    "top20_overlap": 0.45
+  },
+  {
+    "a": "topic_supersimetria",
+    "b": "topic_mixture",
+    "pearson_scores": 0.8510271850360753,
+    "top20_overlap": 0.6
+  }
+]

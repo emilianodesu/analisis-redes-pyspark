@@ -1,0 +1,13 @@
+.runtime/
+.venv/
+data/
+results/
+__pycache__/
+.pytest_cache/
+.ipynb_checkpoints/
+.env
+.env.*
+*.tar
+*.tar.gz
+cleanup_*.py
+.DS_Store

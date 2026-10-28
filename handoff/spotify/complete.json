@@ -1,0 +1,13 @@
+{
+  "labels": [
+    "pagerank",
+    "authority",
+    "hub",
+    "topic_rock",
+    "topic_pop",
+    "topic_hiphop",
+    "topic_mixture"
+  ],
+  "all_topics": true,
+  "all_converged": true
+}

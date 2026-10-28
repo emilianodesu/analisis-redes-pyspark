@@ -1,0 +1,11 @@
+{
+  "directed": true,
+  "redirects": 12065403,
+  "resolved_redirects": 12037779,
+  "unresolved_redirects_cycles_or_missing": 27624,
+  "unresolved_links": 17910254,
+  "explicit_wikitext_links_only": true,
+  "nodes": 7249099,
+  "raw_edges": 242403921,
+  "edges": 235645261
+}

@@ -1,0 +1,22 @@
+{
+  "snapshot_date": "2026-10-28",
+  "wikipedia_last_observed": {
+    "algorithm": "hits",
+    "iteration": 18,
+    "residual": 1.749214737194734,
+    "seconds": 14619.790818041001,
+    "rss_process_tree_bytes": 6496272384,
+    "disk_free_bytes": 130044915712
+  },
+  "completed": [
+    "hepph: todos",
+    "spotify: todos",
+    "wikipedia: extracción, grafo y PageRank"
+  ],
+  "pending": [
+    "wikipedia: HITS desde inicio",
+    "wikipedia: tres PageRank temáticos, mezcla, comparaciones e informe final"
+  ],
+  "hits_tolerance_change_applied": false,
+  "note": "Snapshot histórico; no implica proceso activo en el equipo destino."
+}
