@@ -11,3 +11,4 @@ __pycache__/
 *.tar.gz
 cleanup_*.py
 .DS_Store
+transferencia_redes.tar.sha256

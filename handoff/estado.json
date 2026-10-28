@@ -18,5 +18,12 @@
     "wikipedia: tres PageRank temáticos, mezcla, comparaciones e informe final"
   ],
   "hits_tolerance_change_applied": false,
-  "note": "Snapshot histórico; no implica proceso activo en el equipo destino."
+  "note": "Snapshot histórico; no implica proceso activo en el equipo destino.",
+  "local_pipeline": "stopped_for_migration",
+  "transfer": {
+    "filename": "transferencia_redes.tar",
+    "bytes": 3013376000,
+    "sha256": "f26e5b3b9a0a24337c6ffc65f88e5765bad8f5bb6ff2e78cee3e0697cdf95855",
+    "published_to_github": false
+  }
 }
