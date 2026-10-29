@@ -67,12 +67,16 @@ def analyze(spark, name, max_iter=200, tol=1e-8, target=None):
             if old.get(k) != config.get(k):
                 raise RuntimeError(f'Parámetro {k} cambió. Usa otra carpeta de resultados antes de recalcular.')
     write_json(output/'config.json', config)
-    ndf = spark.read.parquet(str(source/'nodes')).cache()
+    ndf = spark.read.parquet(str(source/'nodes'))
     edf = spark.read.parquet(str(source/'edges'))
-    nodes = ndf.select('id').rdd.map(lambda r: r.id).persist(StorageLevel.MEMORY_AND_DISK)
-    partitions = max(8, math.ceil(config['audit']['edges']/1_000_000))
-    edges = edf.select('src', 'dst').rdd.map(lambda r: (r.src, r.dst)).partitionBy(partitions).persist(StorageLevel.MEMORY_AND_DISK)
-    nodes.count(); edges.count()
+    if target != 'finalize':
+        nodes = ndf.select('id').rdd.map(lambda r: r.id).persist(StorageLevel.MEMORY_AND_DISK)
+        partitions = max(8, math.ceil(config['audit']['edges']/1_000_000))
+        edges = edf.select('src', 'dst').rdd.map(lambda r: (r.src, r.dst)).partitionBy(partitions).persist(StorageLevel.MEMORY_AND_DISK)
+        nodes.count(); edges.count()
+    else:
+        nodes = None
+        edges = None
     status = {}
 
     def save(label, scores, history):
@@ -133,7 +137,7 @@ def analyze(spark, name, max_iter=200, tol=1e-8, target=None):
             seeds = ndf.filter(F.col('topic_text').rlike(pattern)).select('id')
             count = seeds.count()
             status[topic] = {'seeds': count, 'rule': pattern,
-                             'examples': [r.asDict() for r in ndf.join(seeds, 'id').select('id', 'title').orderBy('id').limit(5).collect()]}
+                             'examples': [r.asDict() for r in ndf.filter(F.col('topic_text').rlike(pattern)).select('id', 'title').limit(5).collect()]}
             if not count:
                 status[topic]['status'] = 'PENDIENTE: no hay semillas; no se fabrican resultados'
                 continue
@@ -157,7 +161,7 @@ def analyze(spark, name, max_iter=200, tol=1e-8, target=None):
     for label in labels:
         scores = spark.read.parquet(str(output/label))
         invalid = scores.filter(F.isnan('score') | F.col('score').isNull() | (F.col('score') < 0) | (F.abs('score') == float('inf'))).count()
-        assert invalid == 0 and scores.count() == nodes.count()
+        assert invalid == 0 and scores.count() == ndf.count()
         if label not in ['authority', 'hub']:
             assert abs(scores.agg(F.sum('score')).first()[0]-1) < 1e-7
         top = scores.join(ndf, 'id').orderBy(F.desc('score'), 'id').limit(20).toPandas()
@@ -165,10 +169,11 @@ def analyze(spark, name, max_iter=200, tol=1e-8, target=None):
         tables[label] = top
         wide = wide.join(scores.withColumnRenamed('score', label), 'id')
     correlations = []
+    total_nodes = ndf.count()
     for i, a in enumerate(labels):
         for b in labels[i+1:]:
             correlations.append({'a': a, 'b': b, 'pearson_scores': wide.stat.corr(a, b),
-                                 'top20_overlap': len(set(tables[a].id)&set(tables[b].id))/min(20, nodes.count())})
+                                 'top20_overlap': len(set(tables[a].id)&set(tables[b].id))/min(20, total_nodes)})
     write_json(output/'comparisons.json', correlations)
     # Rango de los resultados temáticos dentro de PageRank base; sin ordenar todo el grafo en el driver.
     base = spark.read.parquet(str(output/'pagerank')).cache()
@@ -198,5 +203,7 @@ def analyze(spark, name, max_iter=200, tol=1e-8, target=None):
     write_json(output/'complete.json', {'labels': labels, 'all_topics': len(topic_labels) == len(config['topics']),
                                       'all_converged': all(json.loads((output/f'{l}.json').read_text())['converged'] for l in labels if l != 'topic_mixture')})
     if (output/'running.json').exists(): (output/'running.json').unlink()
-    base.unpersist(); ndf.unpersist(); edf.unpersist(); nodes.unpersist(); edges.unpersist()
+    base.unpersist(); ndf.unpersist(); edf.unpersist()
+    if nodes is not None: nodes.unpersist()
+    if edges is not None: edges.unpersist()
     return output

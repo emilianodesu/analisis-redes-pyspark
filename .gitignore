@@ -9,7 +9,12 @@ __pycache__/
 .env.*
 *.tar
 *.tar.gz
+*.patch
+scripts/broad_uger/
+scripts/watch_systemd.py
+scripts/offload_shuffles.py
 cleanup_*.py
 .DS_Store
 transferencia_redes.tar.sha256
 *.tar.partial
+
