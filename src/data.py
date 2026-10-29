@@ -2,6 +2,7 @@
 import bz2
 import hashlib
 import json
+import os
 import re
 import shutil
 import time
@@ -19,7 +20,7 @@ HEADERS = {'User-Agent': 'AcademicGraphAnalysis/1.0 (university coursework)'}
 
 def write_json(path, value):
     path = Path(path); path.parent.mkdir(parents=True, exist_ok=True)
-    tmp = path.with_suffix('.tmp')
+    tmp = path.with_name(f"{path.name}.tmp.{os.getpid()}_{time.time_ns()}")
     tmp.write_text(json.dumps(value, indent=2, ensure_ascii=False))
     tmp.replace(path)
 

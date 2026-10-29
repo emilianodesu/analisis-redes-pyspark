@@ -77,6 +77,8 @@ def pilot():
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('stage', choices=['pilot', 'hepph', 'spotify', 'wikipedia', 'all', 'report'])
+    parser.add_argument('--target', choices=['hits', 'topic_ciencia', 'topic_musica', 'topic_deportes', 'finalize'], default=None,
+                        help='Sub-tarea específica para ejecución paralela en HPC/UGER')
     args = parser.parse_args()
     (ROOT/'results').mkdir(exist_ok=True)
     if args.stage == 'pilot':
@@ -86,16 +88,18 @@ def main():
         execute_notebook(); return
     from src.pipeline import session, analyze
     from src.graphs import wikipedia
-    lock_file = (ROOT/'results/pipeline.lock').open('a+')
+    lock_name = f'pipeline_{args.target}.lock' if args.target else 'pipeline.lock'
+    lock_file = (ROOT/'results'/lock_name).open('a+')
     try:
         fcntl.flock(lock_file, fcntl.LOCK_EX | fcntl.LOCK_NB)
     except BlockingIOError:
-        raise RuntimeError('Ya hay otro pipeline activo en este proyecto.')
+        raise RuntimeError(f'Ya hay otro pipeline activo para {lock_name}.')
     spark = session()
     failures = []
     try:
         for dataset in (['hepph', 'spotify', 'wikipedia'] if args.stage == 'all' else [args.stage]):
-            write_json(ROOT/'results/progress.json', {'stage': dataset, 'state': 'running'})
+            prog_file = ROOT/'results'/f'progress_{args.target}.json' if args.target else ROOT/'results/progress.json'
+            write_json(prog_file, {'stage': dataset, 'target': args.target, 'state': 'running'})
             try:
                 processed = ROOT/'data/processed'/dataset
                 if not (processed/'audit.json').exists():
@@ -108,11 +112,12 @@ def main():
                         source = download(WIKI_URL, RAW/'enwiki-latest-pages-articles-multistream.xml.bz2')
                         extract_wikipedia(source, ROOT/'data/processed/wiki-pages')
                         wikipedia(spark, ROOT/'data/processed/wiki-pages')
-                analyze(spark, dataset)
+                analyze(spark, dataset, target=args.target)
                 error_path = ROOT/'results'/f'{dataset}_error.json'
                 if error_path.exists(): error_path.unlink()
-                from src.report import execute_notebook
-                execute_notebook()
+                if args.target in [None, 'finalize']:
+                    from src.report import execute_notebook
+                    execute_notebook()
             except Exception as exc:
                 failures.append(dataset)
                 write_json(ROOT/'results'/f'{dataset}_error.json', {'error': str(exc), 'status': 'INCOMPLETO'})
@@ -121,7 +126,8 @@ def main():
     finally:
         spark.stop()
         lock_file.close()
-    write_json(ROOT/'results/progress.json', {'state': 'incomplete' if failures else 'finished', 'failed_datasets': failures})
+    prog_file = ROOT/'results'/f'progress_{args.target}.json' if args.target else ROOT/'results/progress.json'
+    write_json(prog_file, {'stage': dataset, 'target': args.target, 'state': 'incomplete' if failures else 'finished', 'failed_datasets': failures})
     if failures:
         raise SystemExit(1)
 

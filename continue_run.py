@@ -49,7 +49,12 @@ def main():
             raise ValueError('Dataset no reconocido: '+dataset)
         if dataset == 'wikipedia' and config.get('download'):
             wait_for(config['download'], 'descarga completa de Wikipedia')
-        run(dataset, ['run.py', dataset])
+        while True:
+            ret = run(dataset, ['run.py', dataset])
+            if ret == 0:
+                break
+            update(f'Fallo en {dataset} (codigo {ret}). Reintentando en 15s...')
+            time.sleep(15)
     run('notebook', ['run.py', 'report'])
     state['state'] = 'finished' if all(s['returncode'] == 0 for s in state['steps']) else 'incomplete'
     update('Terminado; revisar resultados y convergencia en el notebook')

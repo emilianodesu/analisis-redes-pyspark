@@ -65,16 +65,21 @@ def pagerank(nodes, edges, personalization=None, alpha=.85, tol=1e-8,
     return ranks, history
 
 
-def hits(nodes, edges, tol=1e-8, max_iter=200, checkpoint_every=10, on_iteration=None):
+def hits(nodes, edges, tol=1e-8, max_iter=200, checkpoint_every=10, on_iteration=None,
+         initial_a=None, initial_h=None, start_iter=1, history_init=None, on_checkpoint=None):
     n = nodes.count()
     if not n:
         raise ValueError('Grafo vacío')
     partitions = edges.getNumPartitions()
     base = nodes.map(lambda x: (x, 0.0)).partitionBy(partitions).persist(StorageLevel.MEMORY_AND_DISK)
     reverse = edges.map(lambda e: (e[1], e[0])).persist(StorageLevel.MEMORY_AND_DISK)
-    h = base.mapValues(lambda _: 1/math.sqrt(n)).persist(StorageLevel.MEMORY_AND_DISK)
-    a = h.mapValues(float).persist(StorageLevel.MEMORY_AND_DISK)
-    history = []
+    if initial_h is not None and initial_a is not None:
+        h = initial_h
+        a = initial_a
+    else:
+        h = base.mapValues(lambda _: 1/math.sqrt(n)).persist(StorageLevel.MEMORY_AND_DISK)
+        a = h.mapValues(float).persist(StorageLevel.MEMORY_AND_DISK)
+    history = list(history_init) if history_init else []
     started = time.perf_counter()
 
     def update(links, scores):
@@ -84,7 +89,7 @@ def hits(nodes, edges, tol=1e-8, max_iter=200, checkpoint_every=10, on_iteration
         out.count(); raw.unpersist()
         return out
 
-    for iteration in range(1, max_iter+1):
+    for iteration in range(start_iter, max_iter+1):
         na = update(edges, h)
         nh = update(reverse, na)
         if iteration % checkpoint_every == 0:
@@ -96,6 +101,8 @@ def hits(nodes, edges, tol=1e-8, max_iter=200, checkpoint_every=10, on_iteration
             on_iteration(history[-1])
         a.unpersist(); h.unpersist()
         a, h = na, nh
+        if on_checkpoint and iteration % checkpoint_every == 0:
+            on_checkpoint(iteration, a, h, history)
         if residual < tol:
             break
     base.unpersist(); reverse.unpersist()
