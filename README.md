@@ -28,7 +28,20 @@ Desde esta carpeta:
 
 `run.py all` procesa los tres datasets por orden y registra errores por dataset para permitir el progreso de los demás. `report` ejecuta todas las celdas del notebook para incorporar las salidas disponibles sin recalcular redes. En el notebook, `EJECUTAR_PIPELINE = True` permite iniciar los cálculos completos desde una celda; no activarlo mientras exista otra ejecución activa.
 
+Para el grafo completo de Wikipedia, también es posible ejecutar subtareas específicas de forma desacoplada mediante el parámetro `--target`:
+```sh
+.venv/bin/python run.py wikipedia --target hits
+.venv/bin/python run.py wikipedia --target topic_ciencia
+.venv/bin/python run.py wikipedia --target topic_musica
+.venv/bin/python run.py wikipedia --target topic_deportes
+.venv/bin/python run.py wikipedia --target finalize
+```
+
 Consultar progreso sin iniciar cálculos: `.venv/bin/python status.py`. El coordinador `continue_run.py` puede mantener las etapas largas en ejecución; su estado se guarda en `results/background_status.json` y sus logs en `results/background_*.log`. Cada dataset terminado actualiza el notebook. El equipo debe permanecer encendido y con red; si se interrumpe, `run.py all` reutiliza etapas terminadas y descargas parciales compatibles.
+
+### Despliegue opcional en Clúster / HPC
+
+Para entornos de alto rendimiento o servidores de cómputo en clúster (**Slurm**, **SGE / Grid Engine** o contenedores **Podman / Docker**), el directorio [`scripts/cluster/`](scripts/cluster/) incluye plantillas automatizadas para lanzar las subtareas de Wikipedia en paralelo en nodos independientes y encadenar la consolidación final del reporte. Consulta [`scripts/cluster/README.md`](scripts/cluster/README.md) para detalles de configuración y uso.
 
 ## Archivos y reanudación
 
@@ -41,7 +54,7 @@ Consultar progreso sin iniciar cálculos: `.venv/bin/python status.py`. El coord
 
 La descarga de Wikipedia se reanuda desde `.part` solo si la identidad remota coincide. Si cambia `latest`, se detiene para evitar mezclar versiones. La extracción confirma cada lote con un renombrado atómico; tras una interrupción vuelve a recorrer el XML y omite los lotes ya escritos. Esto evita repetir escrituras, aunque sí repite descompresión y lectura.
 
-Los algoritmos terminados se reutilizan. Los checkpoints internos de Spark cortan el linaje, pero no son una interfaz de recuperación entre procesos: un algoritmo interrumpido se reinicia. No modificar datos ni reglas dentro de una carpeta de resultados existente; conservarla aparte para una nueva ejecución.
+Los algoritmos terminados se reutilizan. Para procesos de larga duración (como HITS sobre Wikipedia), el pipeline guarda checkpoints intermedios periódicos en disco (cada 5 iteraciones en `results/<dataset>/_checkpoint_hits/`), lo que permite que una ejecución interrumpida se reanude automáticamente desde el último punto de control sin recalcular desde la iteración 1. No modificar datos ni reglas dentro de una carpeta de resultados existente; conservarla aparte para una nueva ejecución.
 
 ## Definiciones y límites
 
