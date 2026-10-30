@@ -153,6 +153,49 @@ def check_and_rebalance_storage():
         freed_gb = bytes_freed / (1024 ** 3)
         log(f"✅ Desahogo completado: {count} archivos movidos ({freed_gb:.1f} GB liberados). Espacio libre actual en SSD: {new_free:.1f} GB.")
 
+def publish_to_github():
+    """
+    Sube a GitHub de forma segura los entregables finales:
+    - analisis_redes.ipynb (completamente evaluado con gráficas y tablas)
+    - Tablas y métricas sintetizadas (CSVs y JSONs de convergencia y rankings)
+    Excluye Parquets gigantescos (>100MB) para respetar límites estrictos de GitHub.
+    """
+    log("Iniciando publicación automática de entregables a GitHub...")
+    try:
+        # Añadir el notebook principal evaluado
+        subprocess.run(['git', 'add', 'analisis_redes.ipynb'], cwd=str(ROOT), check=True)
+
+        # Añadir archivos de resultados ligeros (JSONs de convergencia y métricas, CSVs de Top-20 y comparaciones)
+        for ds in ['hepph', 'spotify', 'wikipedia']:
+            ds_dir = ROOT / 'results' / ds
+            if ds_dir.exists():
+                for p in ds_dir.glob('*.json'):
+                    if p.name != 'running.json':
+                        subprocess.run(['git', 'add', '-f', str(p.relative_to(ROOT))], cwd=str(ROOT), check=True)
+                for p in ds_dir.glob('*.csv'):
+                    subprocess.run(['git', 'add', '-f', str(p.relative_to(ROOT))], cwd=str(ROOT), check=True)
+
+        # Comprobar si hay cambios para commitear
+        diff_res = subprocess.run(['git', 'diff', '--staged', '--quiet'], cwd=str(ROOT))
+        if diff_res.returncode != 0:
+            commit_msg = "feat: completar analisis de redes en Wikipedia, rankings tematicos y evaluacion del notebook"
+            subprocess.run(['git', 'commit', '-m', commit_msg], cwd=str(ROOT), check=True)
+            log("Commit de entregables creado exitosamente.")
+            
+            push_res = subprocess.run(['git', 'push', 'origin', 'main'], cwd=str(ROOT), capture_output=True, text=True)
+            if push_res.returncode == 0:
+                log("🚀 Entregables subidos exitosamente a GitHub (origin/main).")
+                return True
+            else:
+                log(f"⚠️ Error al hacer git push: {push_res.stderr}")
+                return False
+        else:
+            log("No hay cambios pendientes para commit en git.")
+            return True
+    except Exception as e:
+        log(f"❌ Excepción durante la publicación a GitHub: {e}")
+        return False
+
 def check_pipeline_completion():
     complete_marker = ROOT / 'results/wikipedia/complete.json'
     tg_sent_file = ROOT / 'results/.telegram_completed'
@@ -173,6 +216,10 @@ def check_pipeline_completion():
                              capture_output=True, text=True)
         status = res.stdout.strip()
         if status not in ['active', 'activating'] or nb_ready:
+            # Primero publicar a GitHub
+            gh_success = publish_to_github()
+
+            gh_status_str = "✓ Entregables subidos a GitHub exitosamente (origin/main)." if gh_success else "⚠️ GitHub push pendiente o requiere verificación manual."
             msg = (
                 "🎉 ¡Proyecto de Análisis de Redes PySpark Completado al 100% en axiom-server!\n\n"
                 "📊 Resumen de Resultados:\n"
@@ -183,7 +230,8 @@ def check_pipeline_completion():
                 "   • HITS Authority & Hubs: ✓ 123 iters (tol: 9.04e-09)\n"
                 "   • Tópicos: ✓ Ciencia, Música y Deportes calculados.\n"
                 "   • Métricas: ✓ Topic Mixture, correlaciones de Pearson y Top-20.\n\n"
-                "📓 Cuaderno: analisis_redes.ipynb evaluado y listo con todas las tablas y gráficos."
+                "📓 Cuaderno: analisis_redes.ipynb evaluado y listo con todas las tablas y gráficos.\n"
+                f"🐙 Repositorio: {gh_status_str}"
             )
             if send_telegram(msg):
                 try:
