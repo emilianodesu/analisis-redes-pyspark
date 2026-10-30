@@ -1,0 +1,83 @@
+{
+  "ciencia": {
+    "seeds": 104432,
+    "rule": "(?i)\\b(science|scientific|physics|chemistry|biology|mathematics|astronomy)\\b",
+    "examples": [
+      {
+        "id": "10012554",
+        "title": "Carbon Balance and Management"
+      },
+      {
+        "id": "10050603",
+        "title": "Fancy Paradise"
+      },
+      {
+        "id": "10177497",
+        "title": "Bårjås"
+      },
+      {
+        "id": "10212085",
+        "title": "Shawn Wong"
+      },
+      {
+        "id": "10315",
+        "title": "Edwin Howard Armstrong"
+      }
+    ],
+    "top20_seed_fraction": 0.2
+  },
+  "musica": {
+    "seeds": 315371,
+    "rule": "(?i)\\b(music|musical|musician|album|song|singer)\\b",
+    "examples": [
+      {
+        "id": "10010535",
+        "title": "Ngoni (instrument)"
+      },
+      {
+        "id": "10013813",
+        "title": "The Act (band)"
+      },
+      {
+        "id": "10038241",
+        "title": "Size 14"
+      },
+      {
+        "id": "10182100",
+        "title": "Lester Estelle II"
+      },
+      {
+        "id": "10297430",
+        "title": "China Conservatory of Music"
+      }
+    ],
+    "top20_seed_fraction": 0.45
+  },
+  "deportes": {
+    "seeds": 886026,
+    "rule": "(?i)\\b(sport|sports|football|basketball|olympic|athlete|tennis)\\b",
+    "examples": [
+      {
+        "id": "10022852",
+        "title": "Venezuela Davis Cup team"
+      },
+      {
+        "id": "10028074",
+        "title": "Hermes (Marvel Comics)"
+      },
+      {
+        "id": "10037744",
+        "title": "FK Tekstilac"
+      },
+      {
+        "id": "10100819",
+        "title": "Hong Kong Davis Cup team"
+      },
+      {
+        "id": "10179883",
+        "title": "Javi Jiménez (footballer, born 1979)"
+      }
+    ],
+    "top20_seed_fraction": 0.55
+  }
+}

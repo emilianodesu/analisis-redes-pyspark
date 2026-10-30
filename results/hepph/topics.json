@@ -1,0 +1,83 @@
+{
+  "neutrinos": {
+    "seeds": 4247,
+    "rule": "(?i)\\bneutrinos?\\b",
+    "examples": [
+      {
+        "id": "10009",
+        "title": "Large nu_mu->nu_tau and nu_e->nu_tau transitions in short-baseline experiments?"
+      },
+      {
+        "id": "10035",
+        "title": "The Utility of Quantum Field Theory"
+      },
+      {
+        "id": "10036",
+        "title": "Spin-Dependent WIMPs in DAMA?"
+      },
+      {
+        "id": "10051",
+        "title": "Laboratory Limits on Theories with Sterile Neutrinos in the Bulk"
+      },
+      {
+        "id": "10054",
+        "title": "Propagation et oscillations en theorie des champs"
+      }
+    ],
+    "top20_seed_fraction": 0.9
+  },
+  "higgs": {
+    "seeds": 4025,
+    "rule": "(?i)\\bhiggs\\b",
+    "examples": [
+      {
+        "id": "10003",
+        "title": "b -> s γand supersymmetry with large tanβ"
+      },
+      {
+        "id": "10006",
+        "title": "The heavy neutral Higgs signature in the gamma gamma to Z Z process"
+      },
+      {
+        "id": "10012",
+        "title": "QCD Radiation off Heavy Particles"
+      },
+      {
+        "id": "1002",
+        "title": "Reconciling the Two-Loop Diagrammatic and Effective Field Theory Computations of the Mass of the Lightest CP-even Higgs Boson in the MSSM"
+      },
+      {
+        "id": "10026",
+        "title": "Can the SO(10) Model with Two Higgs Doublets Reproduce the Observed Fermion Masses?"
+      }
+    ],
+    "top20_seed_fraction": 0.45
+  },
+  "supersimetria": {
+    "seeds": 5057,
+    "rule": "(?i)\\b(supersymmetr\\w*|susy|supergravity)\\b",
+    "examples": [
+      {
+        "id": "10003",
+        "title": "b -> s γand supersymmetry with large tanβ"
+      },
+      {
+        "id": "10004",
+        "title": "New Formulas and Predictions for Running Fermion Masses at Higher Scales in SM, 2HDM, and MSSM"
+      },
+      {
+        "id": "10006",
+        "title": "The heavy neutral Higgs signature in the gamma gamma to Z Z process"
+      },
+      {
+        "id": "10012",
+        "title": "QCD Radiation off Heavy Particles"
+      },
+      {
+        "id": "10018",
+        "title": "Production of Charginos, Neutralinos, and Third Generation Sfermions at an e+e- Linear Collider"
+      }
+    ],
+    "top20_seed_fraction": 1.0
+  }
+}

@@ -1,0 +1,142 @@
+[
+  {
+    "id": "30680",
+    "title": "The New York Times",
+    "topic_rank": 1,
+    "pagerank_rank": 2,
+    "gain": 1
+  },
+  {
+    "id": "3434750",
+    "title": "United States",
+    "topic_rank": 2,
+    "pagerank_rank": 1,
+    "gain": -1
+  },
+  {
+    "id": "26787",
+    "title": "Science fiction",
+    "topic_rank": 3,
+    "pagerank_rank": 767,
+    "gain": 764
+  },
+  {
+    "id": "32927",
+    "title": "World War II",
+    "topic_rank": 4,
+    "pagerank_rank": 3,
+    "gain": -1
+  },
+  {
+    "id": "324572",
+    "title": "Academic journal",
+    "topic_rank": 5,
+    "pagerank_rank": 47,
+    "gain": 42
+  },
+  {
+    "id": "31717",
+    "title": "United Kingdom",
+    "topic_rank": 6,
+    "pagerank_rank": 6,
+    "gain": 0
+  },
+  {
+    "id": "18831",
+    "title": "Mathematics",
+    "topic_rank": 7,
+    "pagerank_rank": 154,
+    "gain": 147
+  },
+  {
+    "id": "645042",
+    "title": "New York City",
+    "topic_rank": 8,
+    "pagerank_rank": 7,
+    "gain": -1
+  },
+  {
+    "id": "24116",
+    "title": "Peer review",
+    "topic_rank": 9,
+    "pagerank_rank": 91,
+    "gain": 82
+  },
+  {
+    "id": "19344515",
+    "title": "The Guardian",
+    "topic_rank": 10,
+    "pagerank_rank": 8,
+    "gain": -2
+  },
+  {
+    "id": "48518",
+    "title": "Oxford University Press",
+    "topic_rank": 11,
+    "pagerank_rank": 17,
+    "gain": 6
+  },
+  {
+    "id": "21031297",
+    "title": "Doctor of Philosophy",
+    "topic_rank": 12,
+    "pagerank_rank": 138,
+    "gain": 126
+  },
+  {
+    "id": "17867",
+    "title": "London",
+    "topic_rank": 13,
+    "pagerank_rank": 10,
+    "gain": -3
+  },
+  {
+    "id": "8569916",
+    "title": "English language",
+    "topic_rank": 14,
+    "pagerank_rank": 15,
+    "gain": 1
+  },
+  {
+    "id": "99430",
+    "title": "Site of Special Scientific Interest",
+    "topic_rank": 15,
+    "pagerank_rank": 4067,
+    "gain": 4052
+  },
+  {
+    "id": "18426501",
+    "title": "Harvard University",
+    "topic_rank": 16,
+    "pagerank_rank": 79,
+    "gain": 63
+  },
+  {
+    "id": "22939",
+    "title": "Physics",
+    "topic_rank": 17,
+    "pagerank_rank": 347,
+    "gain": 330
+  },
+  {
+    "id": "73199",
+    "title": "Cambridge University Press",
+    "topic_rank": 18,
+    "pagerank_rank": 38,
+    "gain": 20
+  },
+  {
+    "id": "5843419",
+    "title": "France",
+    "topic_rank": 19,
+    "pagerank_rank": 5,
+    "gain": -14
+  },
+  {
+    "id": "4764461",
+    "title": "World War I",
+    "topic_rank": 20,
+    "pagerank_rank": 11,
+    "gain": -9
+  }
+]

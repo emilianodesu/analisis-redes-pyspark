@@ -1,0 +1,128 @@
+[
+  {
+    "a": "pagerank",
+    "b": "authority",
+    "pearson_scores": 0.3202021133101727,
+    "top20_overlap": 0.1
+  },
+  {
+    "a": "pagerank",
+    "b": "hub",
+    "pearson_scores": 0.320202113302199,
+    "top20_overlap": 0.1
+  },
+  {
+    "a": "pagerank",
+    "b": "topic_rock",
+    "pearson_scores": 0.44680428397771316,
+    "top20_overlap": 0.05
+  },
+  {
+    "a": "pagerank",
+    "b": "topic_pop",
+    "pearson_scores": 0.6418570043560271,
+    "top20_overlap": 0.5
+  },
+  {
+    "a": "pagerank",
+    "b": "topic_hiphop",
+    "pearson_scores": 0.4958518682296374,
+    "top20_overlap": 0.1
+  },
+  {
+    "a": "pagerank",
+    "b": "topic_mixture",
+    "pearson_scores": 0.6393639860576651,
+    "top20_overlap": 0.35
+  },
+  {
+    "a": "authority",
+    "b": "hub",
+    "pearson_scores": 0.9999999999999998,
+    "top20_overlap": 1.0
+  },
+  {
+    "a": "authority",
+    "b": "topic_rock",
+    "pearson_scores": 0.21858548304897185,
+    "top20_overlap": 0.0
+  },
+  {
+    "a": "authority",
+    "b": "topic_pop",
+    "pearson_scores": 0.3959786457810235,
+    "top20_overlap": 0.1
+  },
+  {
+    "a": "authority",
+    "b": "topic_hiphop",
+    "pearson_scores": 0.4476161918769505,
+    "top20_overlap": 0.2
+  },
+  {
+    "a": "authority",
+    "b": "topic_mixture",
+    "pearson_scores": 0.42732825579850126,
+    "top20_overlap": 0.1
+  },
+  {
+    "a": "hub",
+    "b": "topic_rock",
+    "pearson_scores": 0.21858548304089429,
+    "top20_overlap": 0.0
+  },
+  {
+    "a": "hub",
+    "b": "topic_pop",
+    "pearson_scores": 0.39597864576836517,
+    "top20_overlap": 0.1
+  },
+  {
+    "a": "hub",
+    "b": "topic_hiphop",
+    "pearson_scores": 0.44761619185896634,
+    "top20_overlap": 0.2
+  },
+  {
+    "a": "hub",
+    "b": "topic_mixture",
+    "pearson_scores": 0.4273282557827604,
+    "top20_overlap": 0.1
+  },
+  {
+    "a": "topic_rock",
+    "b": "topic_pop",
+    "pearson_scores": 0.579606426381758,
+    "top20_overlap": 0.05
+  },
+  {
+    "a": "topic_rock",
+    "b": "topic_hiphop",
+    "pearson_scores": 0.31654355592239314,
+    "top20_overlap": 0.0
+  },
+  {
+    "a": "topic_rock",
+    "b": "topic_mixture",
+    "pearson_scores": 0.8067144018706613,
+    "top20_overlap": 0.4
+  },
+  {
+    "a": "topic_pop",
+    "b": "topic_hiphop",
+    "pearson_scores": 0.577738651535501,
+    "top20_overlap": 0.1
+  },
+  {
+    "a": "topic_pop",
+    "b": "topic_mixture",
+    "pearson_scores": 0.8577577704057159,
+    "top20_overlap": 0.4
+  },
+  {
+    "a": "topic_hiphop",
+    "b": "topic_mixture",
+    "pearson_scores": 0.7696054027433828,
+    "top20_overlap": 0.25
+  }
+]

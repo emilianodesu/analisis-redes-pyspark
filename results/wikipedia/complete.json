@@ -1,0 +1,13 @@
+{
+  "labels": [
+    "pagerank",
+    "authority",
+    "hub",
+    "topic_ciencia",
+    "topic_musica",
+    "topic_deportes",
+    "topic_mixture"
+  ],
+  "all_topics": true,
+  "all_converged": true
+}

@@ -1,0 +1,128 @@
+[
+  {
+    "a": "pagerank",
+    "b": "authority",
+    "pearson_scores": 0.8369706564204811,
+    "top20_overlap": 0.5
+  },
+  {
+    "a": "pagerank",
+    "b": "hub",
+    "pearson_scores": 0.14990728321170266,
+    "top20_overlap": 0.05
+  },
+  {
+    "a": "pagerank",
+    "b": "topic_ciencia",
+    "pearson_scores": 0.8182368202705199,
+    "top20_overlap": 0.55
+  },
+  {
+    "a": "pagerank",
+    "b": "topic_musica",
+    "pearson_scores": 0.6641525974219383,
+    "top20_overlap": 0.35
+  },
+  {
+    "a": "pagerank",
+    "b": "topic_deportes",
+    "pearson_scores": 0.6619846025949648,
+    "top20_overlap": 0.5
+  },
+  {
+    "a": "pagerank",
+    "b": "topic_mixture",
+    "pearson_scores": 0.8884830698007037,
+    "top20_overlap": 0.65
+  },
+  {
+    "a": "authority",
+    "b": "hub",
+    "pearson_scores": 0.1731588277284816,
+    "top20_overlap": 0.05
+  },
+  {
+    "a": "authority",
+    "b": "topic_ciencia",
+    "pearson_scores": 0.6563055944360437,
+    "top20_overlap": 0.45
+  },
+  {
+    "a": "authority",
+    "b": "topic_musica",
+    "pearson_scores": 0.7016370277035605,
+    "top20_overlap": 0.4
+  },
+  {
+    "a": "authority",
+    "b": "topic_deportes",
+    "pearson_scores": 0.5764541606488154,
+    "top20_overlap": 0.45
+  },
+  {
+    "a": "authority",
+    "b": "topic_mixture",
+    "pearson_scores": 0.8078549347021836,
+    "top20_overlap": 0.55
+  },
+  {
+    "a": "hub",
+    "b": "topic_ciencia",
+    "pearson_scores": 0.12093186463159677,
+    "top20_overlap": 0.05
+  },
+  {
+    "a": "hub",
+    "b": "topic_musica",
+    "pearson_scores": 0.12943528750797972,
+    "top20_overlap": 0.05
+  },
+  {
+    "a": "hub",
+    "b": "topic_deportes",
+    "pearson_scores": 0.10171089513468962,
+    "top20_overlap": 0.05
+  },
+  {
+    "a": "hub",
+    "b": "topic_mixture",
+    "pearson_scores": 0.1468567727386451,
+    "top20_overlap": 0.05
+  },
+  {
+    "a": "topic_ciencia",
+    "b": "topic_musica",
+    "pearson_scores": 0.5683173854512752,
+    "top20_overlap": 0.35
+  },
+  {
+    "a": "topic_ciencia",
+    "b": "topic_deportes",
+    "pearson_scores": 0.4386721789240437,
+    "top20_overlap": 0.4
+  },
+  {
+    "a": "topic_ciencia",
+    "b": "topic_mixture",
+    "pearson_scores": 0.8089534977238568,
+    "top20_overlap": 0.65
+  },
+  {
+    "a": "topic_musica",
+    "b": "topic_deportes",
+    "pearson_scores": 0.36014742601041433,
+    "top20_overlap": 0.3
+  },
+  {
+    "a": "topic_musica",
+    "b": "topic_mixture",
+    "pearson_scores": 0.8085700671284869,
+    "top20_overlap": 0.5
+  },
+  {
+    "a": "topic_deportes",
+    "b": "topic_mixture",
+    "pearson_scores": 0.773826307742458,
+    "top20_overlap": 0.55
+  }
+]

@@ -1,0 +1,83 @@
+{
+  "rock": {
+    "seeds": 4139,
+    "rule": "(?i)\\brock\\b",
+    "examples": [
+      {
+        "id": "002oyMRzxTzEsBRLzACi8d",
+        "title": "Stella"
+      },
+      {
+        "id": "003kZCrZhoxCckVJ2jCiJC",
+        "title": "Peter Wolf"
+      },
+      {
+        "id": "009IKtLg2rg2QMbvNtWaoh",
+        "title": "Pressure"
+      },
+      {
+        "id": "00C6n2psbFm6XWqyPCXJ5v",
+        "title": "Ufuk Beydemir"
+      },
+      {
+        "id": "00J5DWQel4eH9qQnDS6qrn",
+        "title": "トライセラトップス"
+      }
+    ],
+    "top20_seed_fraction": 0.6
+  },
+  "pop": {
+    "seeds": 17006,
+    "rule": "(?i)\\bpop\\b",
+    "examples": [
+      {
+        "id": "001Ju8fxqMbobN0xjX7XPL",
+        "title": "Samar Singh"
+      },
+      {
+        "id": "001OedRF8lGo3og3aHDTy6",
+        "title": "Thai Trinh"
+      },
+      {
+        "id": "002oyMRzxTzEsBRLzACi8d",
+        "title": "Stella"
+      },
+      {
+        "id": "007FXgr0jLBJxhPJjacXQH",
+        "title": "Eric Land"
+      },
+      {
+        "id": "007nYTXRhZJUZGH7ct5Y3v",
+        "title": "Tails"
+      }
+    ],
+    "top20_seed_fraction": 0.85
+  },
+  "hiphop": {
+    "seeds": 11951,
+    "rule": "(?i)\\b(hip[ -]?hop|rap)\\b",
+    "examples": [
+      {
+        "id": "0016RK4nfua0DSs6FQwVRV",
+        "title": "ZwartWerk"
+      },
+      {
+        "id": "001o475CIcdKHkvgKc9t8H",
+        "title": "Wombat"
+      },
+      {
+        "id": "002eDhqXlxtQHdaIKXyf3H",
+        "title": "Blaklez"
+      },
+      {
+        "id": "006sIkvkGaTFaxszdUS8r7",
+        "title": "Raeliss"
+      },
+      {
+        "id": "008PpLcKUtVXle6JSwkq3I",
+        "title": "Emiway Bantai"
+      }
+    ],
+    "top20_seed_fraction": 0.95
+  }
+}
